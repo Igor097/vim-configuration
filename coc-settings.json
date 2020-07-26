@@ -20,8 +20,6 @@
   "yaml.validate": true,
   "yaml.completion": true,
   "yaml.schemas": {
-    "kubernetes": ["/*.yaml", "/*.yml"],
-    "*": ["/*.yaml", "/*.yml"],
-    "ansible": ["/*.yaml", "/*.yml"]
+    "kubernetes": ["/*.yaml", "/*.yml"]
   }
 }
