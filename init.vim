@@ -12,7 +12,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'leafgarland/typescript-vim'
 Plug 'ianks/vim-tsx'
-" Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'hashivim/vim-packer'
 Plug 'hashivim/vim-vagrant'
@@ -72,7 +71,6 @@ set matchpairs+=<:>
 set hidden
 set hlsearch
 set autoread
-" set cursorline
 set splitbelow
 set splitright
 set showcmd
