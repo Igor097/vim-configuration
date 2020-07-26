@@ -1,0 +1,27 @@
+{
+  "codeLens.enable": true,
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "filetypes": ["go"]
+    },
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["terraform"],
+      "initializationOptions": {}
+    },
+    "dockerfile": {
+      "command": "docker-langserver",
+      "filetypes": ["dockerfile"],
+      "args": ["--stdio"]
+    }
+  },
+  "yaml.validate": true,
+  "yaml.completion": true,
+  "yaml.schemas": {
+    "kubernetes": ["/*.yaml", "/*.yml"],
+    "*": ["/*.yaml", "/*.yml"],
+    "ansible": ["/*.yaml", "/*.yml"]
+  }
+}
