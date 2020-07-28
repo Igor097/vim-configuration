@@ -19,7 +19,6 @@ Plug 'hashivim/vim-terraform'
 Plug 'hashivim/vim-consul'
 Plug 'vim-scripts/vim-gtest'
 Plug 'octol/vim-cpp-enhanced-highlight'
-" Plug 'valloric/youcompleteme'
 Plug 'vim-ruby/vim-ruby'
 Plug 'ekalinin/dockerfile.vim'
 Plug 'elixir-lang/vim-elixir'
@@ -31,8 +30,6 @@ Plug 'skanehira/docker-compose.vim'
 Plug 'pprovost/vim-ps1'
 Plug 'andrewstuart/vim-kubernetes'
 Plug 'tpope/vim-haml'
-" Plug 'vim-scripts/AutoComplPop'
-" Plug 'ryanoasis/vim-devicons'
 Plug 'chr4/nginx.vim'
 Plug 'janko/vim-test'
 Plug 'golang/lint'
@@ -47,12 +44,16 @@ Plug 'fatih/vim-go'
 Plug 'vim-syntastic/syntastic'
 Plug 'lifepillar/pgsql.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'bracki/vim-prometheus'
+Plug 'towolf/vim-helm'
+Plug 'chase/vim-ansible-yaml'
 call plug#end()
 
 filetype plugin indent on
 filetype on
 filetype off
 
+" Basic configuration
 syntax on
 set number
 set relativenumber
@@ -115,6 +116,10 @@ let g:AWSVimValidate = 1
 " let g:jedi#completions_enabled = 0
 let g:coc_disable_startup_warning = 1
 
+" Ansible
+" vim:ft=ansible:
+let g:ansible_options = { 'ignore_blank_lines': 0 }
+
 " Hashicorp Tools Configure
 " Terraform
 let g:terraform_align = 1
@@ -145,11 +150,6 @@ fun! GetSnipsInCurrentScope()
   return snips
 endf
 
-" Terraform
-let g:terraform_align=1
-let g:terraform_fold_sections=1
-let g:terraform_fmt_on_save=1
-
 let g:acp_behaviorSnipmateLength = 1
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
@@ -163,7 +163,7 @@ let g:SuperTabLongestEnhanced = 1
 let g:go_auto_type_info = 1
 let g:go_fmt_command = "goimports"
 
-au filetype go inoremap <buffer> . .<C-x><C-o>
+autocmd filetype go inoremap <buffer> . .<C-x><C-o>
 
 " Mapping Keyboard
 noremap <silent> <C-S> :update<CR>
@@ -175,7 +175,6 @@ map <silent> <S-z> :wq<CR>
 map <silent> <S-c> dd<CR>
 map <silent> <S-v> p<CR>
 map <silent> <C-z> u<CR>
-" map <silent> <C-v> :vsp<CR>
 map <silent> <S-e> :split<CR>
 nmap <silent> <C-t> :tabnew<CR>
 nmap <silent> <S-O> :tabnext<CR>
@@ -188,32 +187,6 @@ autocmd FileType ruby,eruby set filetype=ruby.eruby.chef
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " Coc (Autocomplete configure)
-"let g:coc_global_extensions = [
-"  \ 'coc-snippets',
-"  \ 'coc-clangd',
-" \ 'coc-cmake',
-"  \ 'coc-git',
-"  \ 'coc-go',
-"  \ 'coc-java',
-"  \ 'coc-json',
-"  \ 'coc-powershell',
-"  \ 'coc-python',
-"  \ 'coc-sh',
-"  \ 'coc-solargraph',
-"  \ 'coc-sql',
-"  \ 'coc-tsserver',
-"  \ 'coc-yaml',
-"  \ 'coc-html',
-"  \ 'coc-css',
-"  \ 'coc-pairs',
-"  \ 'coc-angular',
-"  \ 'coc-elixir',
-"  \ 'coc-eslint',
-"  \ 'coc-stylelint',
-"  \ 'coc-vimlsp',
-"  \ 'coc-xml'
-"  \ 'coc-erlang-ls'
-"]
 
 set signcolumn=yes
 
@@ -370,6 +343,4 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-
-
 
